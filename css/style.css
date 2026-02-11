@@ -1,0 +1,129 @@
+/* 全域設定與字體 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap');
+
+:root {
+    --primary-blue: #2563eb;
+    --hover-blue: #1d4ed8;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.8;
+}
+
+/* 統一按鈕與互動效果 */
+.btn-hover-effect {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-hover-effect:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+
+
+/* 相簿燈箱 (Photo Lightbox) 專屬樣式 */
+#photo-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.swiper-gallery {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+    max-height: 85vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+/* 漸層文字效果 (用於 Market 與 ROI 頁面) */
+.gradient-text {
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+/* ROI 頁面專屬的表格漸層背景 */
+.table-gradient thead {
+    background: linear-gradient(to right, #111827, #1f2937);
+}
+
+
+/* 自定義 Swiper 控制按鈕樣式 */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #3b82f6 !important;
+}
+
+.swiper-pagination {
+    color: white !important;
+    font-weight: bold;
+}
+
+
+
+
+/* --- 階段路徑連線樣式（淡藍色虛線版）(用於 campaign 頁面) --- */
+
+.timeline-line {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    /* 調整 top 與 bottom 確保線條完美切齊圓圈中心 */
+    top: 80px; 
+    bottom: 80px;
+    height: auto;
+    /* 將顏色從 #3b82f6 改為 #bfdbfe (blue-200) */
+    background-image: linear-gradient(to bottom, #bfdbfe 50%, rgba(255, 255, 255, 0) 0%);
+    background-position: center;
+    /* background-size 第一個值是寬度，第二個值控制虛線長度與間距 */
+    background-size: 2px 12px; 
+    background-repeat: repeat-y;
+    z-index: 0;
+    pointer-events: none;
+    /* 增加一點點透明度讓它更柔和 */
+    opacity: 0.8;
+}
+
+
+
+/* 確保圓圈遮擋效果依然存在 */
+.relative.flex.items-center > div.bg-white {
+    background-color: white !important;
+    z-index: 10;
+}
+
+.relative.flex.items-center > div.bg-blue-600 {
+    z-index: 10;
+    position: relative;
+}
+
+@media (max-width: 1023px) {
+    .timeline-line {
+        display: none;
+    }
+}
